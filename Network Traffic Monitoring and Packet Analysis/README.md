@@ -118,12 +118,12 @@ Network-Traffic-Monitoring/
 │   └── ssh.pcapng
 │
 └── screenshots/
-    ├── dns-analysis.png
-    ├── dhcp-analysis.png
-    ├── tcp-handshake.png
-    ├── icmp-ping.png
-    ├── http-analysis.png
-    └── https-analysis.png
+    ├── DNS.png
+    ├── DHCP.png
+    ├── TCP.png
+    ├── ICMP.png
+    ├── HTTP.png
+    └── HTTPS.png
 ```
 
 ## Note

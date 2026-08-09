@@ -18,8 +18,6 @@ The following protocols were analyzed:
 * HTTPS
 * SSH
 
----
-
 ## Technologies Used
 
 * Wireshark
@@ -30,15 +28,15 @@ The following protocols were analyzed:
 
 # Protocols Analyzed
 
-## 1. DNS
+## DNS
 
 Analyzed DNS queries and responses to understand how domain names are resolved into IP addresses.
 
 ### Wireshark Capture
 
-![DNS Traffic Analysis](screenshots/DNS.png)
+![DNS](screenshots/DNS.jpeg)
 
-**Filter used:**
+**Wireshark Filter:**
 
 ```text
 dns
@@ -46,11 +44,11 @@ dns
 
 ---
 
-## 2. DHCP
+## DHCP
 
 Captured DHCP traffic to understand how devices obtain IP addresses and other network configuration details.
 
-DHCP communication can include messages such as:
+DHCP communication was analyzed using the following sequence:
 
 ```text
 Discover → Offer → Request → ACK
@@ -58,9 +56,9 @@ Discover → Offer → Request → ACK
 
 ### Wireshark Capture
 
-![DHCP Traffic Analysis](screenshots/DHCP.png)
+![DHCP](screenshots/DHCP.jpeg)
 
-**Filter used:**
+**Wireshark Filter:**
 
 ```text
 dhcp
@@ -68,21 +66,19 @@ dhcp
 
 ---
 
-## 3. TCP
+## TCP
 
-Analyzed TCP communication, including the TCP three-way handshake.
+Analyzed TCP communication and the TCP three-way handshake used to establish a reliable connection.
 
 ```text
 SYN → SYN-ACK → ACK
 ```
 
-The TCP handshake establishes a reliable connection between two devices before data transmission.
-
 ### Wireshark Capture
 
-![TCP Traffic Analysis](screenshots/TCP.png)
+![TCP](screenshots/TCP.jpeg)
 
-**Filter used:**
+**Wireshark Filter:**
 
 ```text
 tcp
@@ -90,17 +86,17 @@ tcp
 
 ---
 
-## 4. ICMP / Ping
+## ICMP / Ping
 
-Analyzed ICMP traffic using the **Ping** command to understand network connectivity and Echo Request/Echo Reply packets.
+Analyzed ICMP traffic using the Ping command to understand network connectivity and Echo Request/Echo Reply packets.
 
-Example:
+Example command:
 
 ```text
 ping 8.8.8.8
 ```
 
-ICMP communication can be observed as:
+ICMP communication was observed using:
 
 ```text
 Echo Request → Echo Reply
@@ -108,9 +104,9 @@ Echo Request → Echo Reply
 
 ### Wireshark Capture
 
-![ICMP Traffic Analysis](screenshots/ICMP.png)
+![ICMP](screenshots/ICMP.jpeg)
 
-**Filter used:**
+**Wireshark Filter:**
 
 ```text
 icmp
@@ -118,17 +114,15 @@ icmp
 
 ---
 
-## 5. HTTP
+## HTTP
 
 Captured and analyzed HTTP requests and responses to understand unencrypted web communication.
 
-HTTP traffic can expose application-layer information because it is not encrypted.
-
 ### Wireshark Capture
 
-![HTTP Traffic Analysis](screenshots/HTTP.png)
+![HTTP](screenshots/HTTP.jpeg)
 
-**Filter used:**
+**Wireshark Filter:**
 
 ```text
 http
@@ -136,17 +130,17 @@ http
 
 ---
 
-## 6. HTTPS / TLS
+## HTTPS / TLS
 
 Analyzed HTTPS/TLS traffic to understand encrypted web communication and identify TLS packets.
 
-Unlike HTTP, HTTPS encrypts application data using TLS, so the actual web content is generally not visible in the packet capture.
+HTTPS encrypts application-layer data using TLS, so the actual web content is generally not visible in the packet capture.
 
 ### Wireshark Capture
 
-![HTTPS TLS Traffic Analysis](screenshots/HTTPS.png)
+![HTTPS](screenshots/HTTPS.jpeg)
 
-**Filter used:**
+**Wireshark Filter:**
 
 ```text
 tls
@@ -154,21 +148,21 @@ tls
 
 ---
 
-## 7. SSH
+## SSH
 
-Captured SSH traffic to understand secure remote communication between systems.
+Captured and analyzed SSH traffic to understand secure remote communication between systems.
 
-SSH encrypts the communication between the client and server.
+SSH provides encrypted communication between an SSH client and server.
 
-**Filter used:**
+### Wireshark Capture
+
+![SSH](screenshots/SSH.jpeg)
+
+**Wireshark Filter:**
 
 ```text
 ssh
 ```
-
-> If you have an SSH screenshot, add it as `screenshots/SSH.png` and use:
->
-> `![SSH Traffic Analysis](screenshots/SSH.png)`
 
 ---
 
@@ -202,6 +196,8 @@ ssh
 * HTTPS/TLS Analysis
 * SSH Analysis
 * Network Troubleshooting
+* Wireshark Display Filters
+* Packet Header Analysis
 
 ---
 
@@ -214,11 +210,13 @@ Through this project, I gained practical experience in:
 * Analyzing packet headers and communication patterns
 * Understanding TCP connections and three-way handshakes
 * Troubleshooting network connectivity using ICMP/Ping
-* Analyzing DNS and DHCP communication
-* Understanding HTTP and HTTPS traffic
-* Identifying encrypted TLS traffic
+* Analyzing DNS queries and responses
+* Understanding DHCP address assignment
+* Analyzing HTTP requests and responses
+* Identifying HTTPS/TLS encrypted traffic
 * Analyzing SSH network communication
 * Using Wireshark display filters for protocol-specific analysis
+* Understanding basic network troubleshooting techniques
 
 ---
 
@@ -230,43 +228,41 @@ Network-Traffic-Monitoring/
 ├── README.md
 │
 ├── captures/
-│   ├── dns.pcapng
-│   ├── dhcp.pcapng
-│   ├── tcp.pcapng
-│   ├── icmp.pcapng
-│   ├── http.pcapng
-│   ├── https.pcapng
-│   └── ssh.pcapng
+│   ├── DNS.pcapng
+│   ├── DHCP.pcapng
+│   ├── TCP.pcapng
+│   ├── ICMP.pcapng
+│   ├── HTTP.pcapng
+│   ├── HTTPS.pcapng
+│   └── SSH.pcapng
 │
 └── screenshots/
-    ├── DNS.png
-    ├── DHCP.png
-    ├── TCP.png
-    ├── ICMP.png
-    ├── HTTP.png
-    ├── HTTPS.png
-    └── SSH.png
+    ├── DNS.jpeg
+    ├── DHCP.jpeg
+    ├── TCP.jpeg
+    ├── ICMP.jpeg
+    ├── HTTP.jpeg
+    ├── HTTPS.jpeg
+    └── SSH.jpeg
 ```
 
 ---
 
 # Security & Privacy Note
 
-Packet captures can contain sensitive information such as:
+Packet captures may contain sensitive network information such as:
 
 * IP addresses
 * MAC addresses
 * Hostnames
-* Usernames
 * DNS queries
+* Usernames
 * Network infrastructure details
 * Unencrypted application data
 
 Only upload packet captures that are safe to share publicly.
 
-For a public GitHub repository, **screenshots are generally safer than uploading raw `.pcapng` files**, especially if the captures contain traffic from your personal or college network.
-
-Before publishing captures, review them in Wireshark and remove or avoid any sensitive information.
+For a public GitHub repository, screenshots are generally safer to publish than raw `.pcapng` files. Before uploading packet captures, review them in Wireshark and make sure they do not contain personal, private, or confidential information.
 
 ---
 

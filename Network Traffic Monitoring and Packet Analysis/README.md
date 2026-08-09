@@ -227,15 +227,6 @@ Network-Traffic-Monitoring/
 │
 ├── README.md
 │
-├── captures/
-│   ├── DNS.pcapng
-│   ├── DHCP.pcapng
-│   ├── TCP.pcapng
-│   ├── ICMP.pcapng
-│   ├── HTTP.pcapng
-│   ├── HTTPS.pcapng
-│   └── SSH.pcapng
-│
 └── screenshots/
     ├── DNS.jpeg
     ├── DHCP.jpeg
